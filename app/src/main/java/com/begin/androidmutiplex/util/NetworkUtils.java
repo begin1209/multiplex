@@ -1,6 +1,7 @@
 package com.begin.androidmutiplex.util;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
@@ -11,7 +12,6 @@ import android.telephony.TelephonyManager;
  */
 
 public class NetworkUtils {
-
 
     /**
      * 判断网络是否可用

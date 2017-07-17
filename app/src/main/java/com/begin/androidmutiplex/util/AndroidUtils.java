@@ -15,7 +15,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import java.io.File;
-import java.math.BigDecimal;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -240,30 +239,6 @@ public class AndroidUtils {
         return null;
     }
 
-    /**
-     * dp转换成px
-     * @param context
-     * @param dpValue
-     * @return
-     */
-    public static int dip2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        BigDecimal result = BigDecimal.valueOf(dpValue).multiply(BigDecimal.valueOf(scale))
-                .add(BigDecimal.valueOf(0.5));
-        return result.intValue();
-    }
 
-    /**
-     * px转成dp
-     * @param context
-     * @param pxValue
-     * @return
-     */
-    public static int px2dip(Context context, float pxValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        BigDecimal result = BigDecimal.valueOf(pxValue).divide(BigDecimal.valueOf(scale))
-                .add(BigDecimal.valueOf(0.5));
-        return result.intValue();
-    }
 
 }

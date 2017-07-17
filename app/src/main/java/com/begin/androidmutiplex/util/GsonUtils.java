@@ -1,5 +1,7 @@
 package com.begin.androidmutiplex.util;
 
+import android.graphics.drawable.Drawable;
+
 import com.google.gson.Gson;
 
 import java.io.Reader;
