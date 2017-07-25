@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RemoteViews;
 
+import com.begin.androidmutiplex.util.LogUtils;
+
 public class NotificationActivity extends AppCompatActivity {
 
     private static final String TAG = NotificationActivity.class.getSimpleName();
@@ -70,16 +72,22 @@ public class NotificationActivity extends AppCompatActivity {
     /**
      * Notification的自定义布局是RemoteViews，和其他RemoteViews一样，
      * 在自定义视图布局文件中，仅支持FrameLayout、LinearLayout、
-     * RelativeLayout三种布局控件和AnalogClock、Chronometer、Button、ImageButton、
-     * ImageView、ProgressBar、TextView、ViewFlipper、ListView、GridView、
+     * RelativeLayout, GridLayout四种布局控件和AnalogClock、Chronometer、Button、ImageButton、
+     * ImageView、ProgressBar、TextView、ViewFlipper、ViewStub、ListView、GridView、
      * StackView和AdapterViewFlipper这些显示控件，不支持这些类的子类或Android提供的其他控件。
      * 否则会引起ClassNotFoundException异常
+     *
+     * 自定义通知栏和默认通知栏效果不同,View更新必须经过RemoteView特有的方法比如更新TextView用
+     * mRemoteView.setTextView;
+     * mRemoteView.setImageViewRes
      * @return
      */
     private Notification createCustomRemoteView(){
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews mRemoteViews = new RemoteViews(getPackageName(), R.layout.custom_notificaton);
+        //更新通知栏图片和文字
         mRemoteViews.setTextViewText(R.id.custom_title, "改变自定义标题");
+        mRemoteViews.setImageViewResource(R.id.left_image, R.mipmap.logo_ucsmy);
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -87,11 +95,14 @@ public class NotificationActivity extends AppCompatActivity {
         mBuilder.setContent(mRemoteViews);
         mBuilder.setContentIntent(pendingIntent);
         //图标必须设置，否则不会显示通知,此Icon为状态栏显示图标，不影响自定义布局
-        mBuilder.setSmallIcon(R.mipmap.logo_ucsmy);
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher);
         mBuilder.setWhen(System.currentTimeMillis());
         mBuilder.setTicker("自定义测试通知来了");
+        //点击通知自动消失，与RemoteView无太大关系
         mBuilder.setAutoCancel(true);
-        Log.v(TAG, "创建自定义通知完成");
+        mBuilder.setOngoing(true);
+        mBuilder.setPriority(Notification.FLAG_SHOW_LIGHTS);
+        LogUtils.log(this, "创建自定义通知完成");
         return mBuilder.build();
     }
 }

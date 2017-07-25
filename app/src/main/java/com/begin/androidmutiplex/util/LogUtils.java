@@ -68,6 +68,18 @@ public class LogUtils {
         isDebug = debug;
     }
 
+    /**
+     * 快捷的日志删除
+     * @param object
+     * @param message
+     */
+    public static void log(Object object, String message){
+        if(isDebug){
+            Log.d(object.getClass().getSimpleName(), message);
+        }
+    }
+
+
     public static void v(String tag, String message){
         if(isDebug){
             Log.v(tag, message);

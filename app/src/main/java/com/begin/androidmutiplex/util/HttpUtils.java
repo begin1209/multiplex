@@ -2,8 +2,10 @@ package com.begin.androidmutiplex.util;
 
 import android.content.Context;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.KeyManagementException;
@@ -15,6 +17,7 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Map;
+import java.util.zip.GZIPInputStream;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -78,7 +81,7 @@ public class HttpUtils {
     /**
      * Https网络请求相关属性配置
      * 可实现客户端与服务端的双向验证
-     *可选择信任所有连接
+     * 可选择信任所有连接
      * @param context
      * @param url
      * @param method
@@ -123,6 +126,43 @@ public class HttpUtils {
         https.setDoInput(true);
         https.connect();
         return https;
+    }
+
+    /**
+     * 流转换器
+     * @param is
+     * @return String
+     */
+    public static String convertStreamToString(InputStream is, boolean zipEnable) {
+
+        StringBuilder sb = new StringBuilder();
+        BufferedReader reader = null;
+        try {
+            if(zipEnable){
+                reader = new BufferedReader(new InputStreamReader(new GZIPInputStream(is), Constants.UTF_8));
+            }else{
+                reader = new BufferedReader(new InputStreamReader(is, Constants.UTF_8));
+            }
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            return sb.toString();
+        }catch (IOException ioe){
+        }finally {
+            try {
+                if (is != null) {
+                    is.close();
+                }
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                LogUtils.log("HttpUtils", "close Exception");
+            }
+        }
+        return null;
     }
 
 

@@ -41,7 +41,7 @@ public class AndroidUtils {
     }
 
     /**
-     *
+     *获取设备IMEI
      * @param context
      * @return
      */
@@ -54,7 +54,7 @@ public class AndroidUtils {
     }
 
     /**
-     *
+     *获取AndroidID
      * @param context
      * @return
      */
