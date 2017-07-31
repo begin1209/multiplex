@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidMutiplex</string>
+
+    <string-array name="select_pic_list">
+        <item>从相机中选择</item>
+        <item>从图片中选择</item>
+    </string-array>
 </resources>
