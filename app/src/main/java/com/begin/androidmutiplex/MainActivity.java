@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         if(null == dialog){
             dialog = new AlertDialog.Builder(this)
                     .setView(mAlertView)
-                    .setCancelable(true)
                     .create();
         }
         Window window = dialog.getWindow();
@@ -65,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         window.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         if(!dialog.isShowing()){
             dialog.show();
+        }else {
+            dialog.cancel();
         }
 //        window.getDecorView().setPadding(0, 0, 0, 0);
         WindowManager.LayoutParams lp = window.getAttributes();
