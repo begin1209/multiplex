@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cd_title_text_size">16dp</dimen>
+    <dimen name="cd_msg_text_size">12dp</dimen>
+    <dimen name="cd_btn_text_size">12dp</dimen>
+</resources>

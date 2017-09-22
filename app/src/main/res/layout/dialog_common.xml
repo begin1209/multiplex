@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/common_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cd_title_color"
+        android:background="@color/cd_title_bg_color"
+        android:textSize="@dimen/cd_title_text_size"
+        android:gravity="center"
+        android:layout_margin="12dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/cd_rule_color"
+        android:layout_height="1dp"/>
+    <TextView
+        android:id="@+id/common_dialog_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="@dimen/cd_msg_text_size"
+        android:textColor="@color/cd_msg_color"
+        android:background="@color/cd_msg_bg_color"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="30dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/cd_rule_color"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/common_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="@dimen/cd_btn_text_size"
+            android:textColor="@color/cd_btn_negative_color"
+            android:background="@color/cd_btn_negative_bg_color"
+            android:gravity="center" />
+        <View
+            android:layout_width="1dp"
+            android:background="@color/cd_rule_color"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/common_dialog_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="@dimen/cd_btn_text_size"
+            android:textColor="@color/cd_btn_positive_color"
+            android:background="@color/cd_btn_positive_bg_color"
+            android:gravity="center" />
+    </LinearLayout>
+</LinearLayout>

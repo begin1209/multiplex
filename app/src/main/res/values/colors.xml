@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--CommonDialog的颜色-->
+    <color name="cd_title_color">@android:color/black</color>
+    <color name="cd_title_bg_color">@android:color/white</color>
+    <color name="cd_msg_color">@android:color/black</color>
+    <color name="cd_msg_bg_color">@android:color/white</color>
+    <color name="cd_btn_negative_color">@android:color/black</color>
+    <color name="cd_btn_negative_bg_color">@android:color/white</color>
+    <color name="cd_btn_positive_color">@android:color/black</color>
+    <color name="cd_btn_positive_bg_color">@android:color/white</color>
+    <color name="cd_rule_color">#f3f3f3</color>
 </resources>
