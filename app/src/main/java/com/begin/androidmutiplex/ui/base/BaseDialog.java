@@ -39,7 +39,7 @@ public abstract class BaseDialog extends Dialog {
     private void init(@NonNull Context context){
         //设置Dialog的大小和位置
         Window window = getWindow();
-        window.setGravity(Gravity.BOTTOM);
+        window.setGravity(Gravity.CENTER);
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         layoutParams.width = (int)(DisplayUtils.getScreenSize(context).widthPixels * 0.8);
         window.setAttributes(layoutParams);

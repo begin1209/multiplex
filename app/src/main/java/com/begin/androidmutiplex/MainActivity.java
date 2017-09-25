@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.TransitionDrawable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -18,7 +19,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private AlertDialog dialog;
 
 
+    private LinearLayout mLinearLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +50,22 @@ public class MainActivity extends AppCompatActivity {
         mShowDialog = (Button)findViewById(R.id.show_dialog);
         mAlertView = LayoutInflater.from(this).inflate(R.layout.alert_dialog, null);
         mListView = (ListView)mAlertView.findViewById(R.id.alert_list_view);
+        mLinearLayout = (LinearLayout)findViewById(R.id.main_layout_test);
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.select_pic_item,
                 getResources().getStringArray(R.array.select_pic_list));
         mListView.setAdapter(adapter);
         mShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog();
+//                showDialog();
+                Snackbar.make(mLinearLayout,
+                        "SnackBar Clicked", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this, "我是action", Toast.LENGTH_LONG).show();
+                    }
+                }).setActionTextColor(Color.RED).show();
+
             }
         });
         ViewConfiguration.get(this).getScaledTouchSlop();  //滑动的最小距离

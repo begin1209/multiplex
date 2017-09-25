@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * 创建线程池，可配
  * @Author zhouy
  * @Date 2017-04-11
  */

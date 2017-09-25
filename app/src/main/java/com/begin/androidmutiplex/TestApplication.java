@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.squareup.leakcanary.LeakCanary;
+
 /**
  * @Author zhouy
  * @Date 2017-07-17
@@ -15,11 +17,14 @@ public class TestApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         //不选择，也可以选择直接继承MultiDexApplication
-        MultiDex.install(this);
+//        MultiDex.install(this);
+
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        //LeakCanary检查内存泄漏
+        LeakCanary.install(this);
     }
 }

@@ -31,4 +31,11 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.android.support:multidex:1.0.0'
     testCompile 'junit:junit:4.12'
+    //material design library
+    compile 'com.android.support:design:26.0.0-alpha1'
+
+    //leakcanary检查内存泄漏
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 }

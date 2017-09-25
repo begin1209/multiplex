@@ -1,6 +1,7 @@
 package com.begin.androidmutiplex.ui;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -18,6 +19,8 @@ public class ScrollActivity extends AppCompatActivity {
 
     private CustomScrollView mCustomScrollView;
 
+    private static Context sContext;
+
     private CommonDialog mCommonDialog;
 
     @Override
@@ -25,7 +28,7 @@ public class ScrollActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scroll);
         mCustomScrollView = (CustomScrollView)findViewById(R.id.custom_scroll_view);
-
+        sContext = this;
 
     }
 
